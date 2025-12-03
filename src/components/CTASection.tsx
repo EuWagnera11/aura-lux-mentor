@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
-import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, MessageCircle } from "lucide-react";
+
+const WHATSAPP_LINK = "https://wa.me/5511981621509?text=Olá! Quero saber mais sobre o Mini Evento: A Verdade de Quem Você É Vai Te Libertar";
 
 const CTASection = () => {
   return (
@@ -19,12 +20,12 @@ const CTASection = () => {
           </div>
 
           <h2 className="font-display text-3xl lg:text-5xl font-semibold text-primary-foreground mb-6">
-            Pronta para dar o primeiro passo rumo à sua melhor versão?
+            Pronta para descobrir quem você realmente é?
           </h2>
 
           <p className="text-lg text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
-            Participe do nosso mini curso gratuito e descubra ferramentas poderosas 
-            para iniciar sua jornada de autoconhecimento e bem-estar.
+            Participe do nosso mini evento gratuito e desperte sua verdadeira identidade, 
+            ative sua segurança e entre no seu destino.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -33,10 +34,11 @@ const CTASection = () => {
               className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 hover:shadow-xl"
               asChild
             >
-              <Link to="/mini-curso">
-                Quero Participar do Mini Curso
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+                <MessageCircle size={20} />
+                Saiba Mais pelo WhatsApp
                 <ArrowRight size={20} />
-              </Link>
+              </a>
             </Button>
           </div>
 
@@ -52,13 +54,13 @@ const CTASection = () => {
               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
                 <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16zm1-8h4v2h-6V7h2v5z"/>
               </svg>
-              <span className="text-sm">Acesso Imediato</span>
+              <span className="text-sm">Gratuito</span>
             </div>
             <div className="flex items-center gap-2">
               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
                 <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-.997-6l7.07-7.071-1.414-1.414-5.656 5.657-2.829-2.829-1.414 1.414L11.003 16z"/>
               </svg>
-              <span className="text-sm">Certificado Incluso</span>
+              <span className="text-sm">Transformador</span>
             </div>
           </div>
         </div>
