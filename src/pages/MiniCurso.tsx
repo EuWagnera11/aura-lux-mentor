@@ -1,5 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FAQSection from "@/components/FAQSection";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { 
   ArrowRight, 
@@ -80,7 +82,7 @@ const MiniCurso = () => {
           
           <div className="container-section relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="animate-fade-up">
+              <ScrollReveal animation="fade-up">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-full mb-6">
                   <Sparkles size={16} className="text-primary" />
                   <span className="text-sm font-medium text-foreground">Mini Evento Gratuito</span>
@@ -117,17 +119,17 @@ const MiniCurso = () => {
                     <ArrowRight size={20} />
                   </a>
                 </Button>
-              </div>
+              </ScrollReveal>
 
-              <div className="relative animate-fade-up delay-200">
+              <ScrollReveal animation="fade-up" delay={200}>
                 <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
                   <img
                     src={speakingPhoto}
-                    alt="Mentora palestrando sobre identidade e transformação feminina"
+                    alt="Sara Duarte palestrando sobre identidade e transformação feminina"
                     className="w-full object-cover"
                   />
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -135,7 +137,7 @@ const MiniCurso = () => {
         {/* The Problem */}
         <section className="py-24 bg-foreground text-background">
           <div className="container-section">
-            <div className="max-w-3xl mx-auto text-center animate-fade-up">
+            <ScrollReveal className="max-w-3xl mx-auto text-center">
               <Flame size={48} className="text-primary mx-auto mb-6" />
               <h2 className="font-display text-3xl lg:text-4xl font-semibold mb-6">
                 A maior prisão não é o medo.
@@ -151,14 +153,14 @@ const MiniCurso = () => {
                 Mas nenhuma vida se sustenta quando a identidade está ferida.
                 E é exatamente isso que eu vou destravar em você.
               </p>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
         {/* The Promise */}
         <section className="py-24 bg-secondary/30">
           <div className="container-section">
-            <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-up">
+            <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="font-display text-3xl lg:text-4xl font-semibold text-foreground mb-6">
                 Quando você entende quem é, você se posiciona.
               </h2>
@@ -168,14 +170,14 @@ const MiniCurso = () => {
                 E quando conquista, você sustenta.
               </p>
               <div className="section-divider mt-8" />
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
         {/* Modules */}
         <section className="py-24 bg-background">
           <div className="container-section">
-            <div className="text-center max-w-2xl mx-auto mb-16 animate-fade-up">
+            <ScrollReveal className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-sm font-medium text-primary uppercase tracking-wider">
                 ✨ O que vai acontecer
               </span>
@@ -183,36 +185,40 @@ const MiniCurso = () => {
                 Nesse Mini Evento
               </h2>
               <div className="section-divider" />
-            </div>
+            </ScrollReveal>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {modules.map((module, index) => (
-                <div
+                <ScrollReveal
                   key={index}
-                  className="card-elegant text-center animate-fade-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  animation="scale-in"
+                  delay={index * 100}
                 >
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                    <module.icon size={32} className="text-primary" />
+                  <div className="card-elegant text-center h-full">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                      <module.icon size={32} className="text-primary" />
+                    </div>
+                    <span className="text-sm text-primary font-medium">{index + 1}.</span>
+                    <h3 className="font-display text-xl font-semibold text-foreground mb-1">{module.title}</h3>
+                    <p className="text-sm text-primary mb-4">{module.subtitle}</p>
+                    <p className="text-sm text-muted-foreground">{module.description}</p>
                   </div>
-                  <span className="text-sm text-primary font-medium">{index + 1}.</span>
-                  <h3 className="font-display text-xl font-semibold text-foreground mb-1">{module.title}</h3>
-                  <p className="text-sm text-primary mb-4">{module.subtitle}</p>
-                  <p className="text-sm text-muted-foreground">{module.description}</p>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
 
-            <p className="text-center text-muted-foreground mt-12 max-w-2xl mx-auto">
-              Esse encontro vai ativar dentro de você um nível de clareza que muda comportamento, decisões e destino.
-            </p>
+            <ScrollReveal delay={400}>
+              <p className="text-center text-muted-foreground mt-12 max-w-2xl mx-auto">
+                Esse encontro vai ativar dentro de você um nível de clareza que muda comportamento, decisões e destino.
+              </p>
+            </ScrollReveal>
           </div>
         </section>
 
         {/* For Who */}
         <section className="py-24 bg-warm-cream">
           <div className="container-section">
-            <div className="text-center max-w-2xl mx-auto mb-16 animate-fade-up">
+            <ScrollReveal className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-sm font-medium text-primary uppercase tracking-wider">
                 🎙 Para quem é
               </span>
@@ -221,26 +227,26 @@ const MiniCurso = () => {
               </h2>
               <p className="text-muted-foreground">Para mulheres que:</p>
               <div className="section-divider" />
-            </div>
+            </ScrollReveal>
 
             <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
               {forWho.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 p-4 bg-card rounded-xl animate-fade-up"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <CheckCircle2 size={20} className="text-primary flex-shrink-0" />
-                  <span className="text-foreground">{item}</span>
-                </div>
+                <ScrollReveal key={index} animation="slide-left" delay={index * 50}>
+                  <div className="flex items-center gap-3 p-4 bg-card rounded-xl">
+                    <CheckCircle2 size={20} className="text-primary flex-shrink-0" />
+                    <span className="text-foreground">{item}</span>
+                  </div>
+                </ScrollReveal>
               ))}
             </div>
 
-            <p className="text-center text-lg text-muted-foreground mt-12 italic">
-              Se você sente que está vivendo muito abaixo do seu potencial…
-              <br />
-              <span className="text-primary font-semibold">este é o seu chamado.</span>
-            </p>
+            <ScrollReveal delay={500}>
+              <p className="text-center text-lg text-muted-foreground mt-12 italic">
+                Se você sente que está vivendo muito abaixo do seu potencial…
+                <br />
+                <span className="text-primary font-semibold">este é o seu chamado.</span>
+              </p>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -249,7 +255,7 @@ const MiniCurso = () => {
           <div className="container-section">
             <div className="max-w-4xl mx-auto">
               <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="animate-fade-up">
+                <ScrollReveal animation="slide-left">
                   <span className="text-sm font-medium text-primary uppercase tracking-wider">
                     🚀 O que você vai ganhar
                   </span>
@@ -271,10 +277,10 @@ const MiniCurso = () => {
                     <br />
                     <span className="text-primary">🔥 A capacidade de sustentar tudo o que você conquistar daqui pra frente.</span>
                   </p>
-                </div>
+                </ScrollReveal>
 
                 {/* CTA Card */}
-                <div className="animate-fade-up delay-200">
+                <ScrollReveal animation="slide-right" delay={200}>
                   <div className="bg-gradient-to-br from-primary to-accent p-8 rounded-2xl text-center">
                     <Heart size={48} className="text-primary-foreground mx-auto mb-4" />
                     <h3 className="font-display text-2xl font-semibold text-primary-foreground mb-2">
@@ -298,7 +304,7 @@ const MiniCurso = () => {
                       Vagas limitadas • Online • 20h
                     </p>
                   </div>
-                </div>
+                </ScrollReveal>
               </div>
             </div>
           </div>
@@ -307,7 +313,7 @@ const MiniCurso = () => {
         {/* Why */}
         <section className="py-24 bg-secondary/30">
           <div className="container-section">
-            <div className="text-center max-w-3xl mx-auto animate-fade-up">
+            <ScrollReveal className="text-center max-w-3xl mx-auto">
               <span className="text-sm font-medium text-primary uppercase tracking-wider">
                 💎 Por que você precisa estar
               </span>
@@ -322,23 +328,23 @@ const MiniCurso = () => {
 
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {transformations.map((item, index) => (
-                  <div
-                    key={index}
-                    className="p-4 bg-card rounded-xl border border-primary/20 animate-fade-up"
-                    style={{ animationDelay: `${index * 50}ms` }}
-                  >
-                    <span className="text-primary">✨</span>
-                    <p className="text-foreground text-sm mt-2">{item}</p>
-                  </div>
+                  <ScrollReveal key={index} animation="scale-in" delay={index * 80}>
+                    <div className="p-4 bg-card rounded-xl border border-primary/20">
+                      <span className="text-primary">✨</span>
+                      <p className="text-foreground text-sm mt-2">{item}</p>
+                    </div>
+                  </ScrollReveal>
                 ))}
               </div>
 
-              <p className="mt-12 text-muted-foreground">
-                Esse encontro é para você regressar ao seu design original.
-                <br />
-                <span className="text-primary font-semibold">A sua verdade. A sua essência. O seu destino.</span>
-              </p>
-            </div>
+              <ScrollReveal delay={600}>
+                <p className="mt-12 text-muted-foreground">
+                  Esse encontro é para você regressar ao seu design original.
+                  <br />
+                  <span className="text-primary font-semibold">A sua verdade. A sua essência. O seu destino.</span>
+                </p>
+              </ScrollReveal>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -346,41 +352,43 @@ const MiniCurso = () => {
         <section className="py-24 bg-background">
           <div className="container-section">
             <div className="max-w-2xl mx-auto">
-              <div className="card-elegant text-center animate-fade-up">
-                <span className="text-sm font-medium text-primary uppercase tracking-wider">
-                  📅 Detalhes do Mini Evento
-                </span>
-                <h2 className="font-display text-2xl font-semibold text-foreground mt-4 mb-8">
-                  A Verdade de Quem Você É Vai Te Libertar
-                </h2>
+              <ScrollReveal animation="scale-in">
+                <div className="card-elegant text-center">
+                  <span className="text-sm font-medium text-primary uppercase tracking-wider">
+                    📅 Detalhes do Mini Evento
+                  </span>
+                  <h2 className="font-display text-2xl font-semibold text-foreground mt-4 mb-8">
+                    A Verdade de Quem Você É Vai Te Libertar
+                  </h2>
 
-                <div className="grid sm:grid-cols-2 gap-4 text-left mb-8">
-                  <div className="p-4 bg-secondary/50 rounded-lg">
-                    <p className="text-sm text-muted-foreground">Formato</p>
-                    <p className="font-semibold text-foreground">Online e totalmente gratuito</p>
+                  <div className="grid sm:grid-cols-2 gap-4 text-left mb-8">
+                    <div className="p-4 bg-secondary/50 rounded-lg">
+                      <p className="text-sm text-muted-foreground">Formato</p>
+                      <p className="font-semibold text-foreground">Online e totalmente gratuito</p>
+                    </div>
+                    <div className="p-4 bg-secondary/50 rounded-lg">
+                      <p className="text-sm text-muted-foreground">Duração</p>
+                      <p className="font-semibold text-foreground">60–90 minutos</p>
+                    </div>
+                    <div className="p-4 bg-secondary/50 rounded-lg">
+                      <p className="text-sm text-muted-foreground">Horário</p>
+                      <p className="font-semibold text-foreground">20h</p>
+                    </div>
+                    <div className="p-4 bg-secondary/50 rounded-lg">
+                      <p className="text-sm text-muted-foreground">Bônus</p>
+                      <p className="font-semibold text-foreground">PDF "Ativação da Identidade"</p>
+                    </div>
                   </div>
-                  <div className="p-4 bg-secondary/50 rounded-lg">
-                    <p className="text-sm text-muted-foreground">Duração</p>
-                    <p className="font-semibold text-foreground">60–90 minutos</p>
-                  </div>
-                  <div className="p-4 bg-secondary/50 rounded-lg">
-                    <p className="text-sm text-muted-foreground">Horário</p>
-                    <p className="font-semibold text-foreground">20h</p>
-                  </div>
-                  <div className="p-4 bg-secondary/50 rounded-lg">
-                    <p className="text-sm text-muted-foreground">Bônus</p>
-                    <p className="font-semibold text-foreground">PDF "Ativação da Identidade"</p>
-                  </div>
+
+                  <Button variant="hero" size="lg" className="w-full" asChild>
+                    <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+                      <MessageCircle size={20} />
+                      Garantir Minha Vaga Gratuita
+                      <ArrowRight size={20} />
+                    </a>
+                  </Button>
                 </div>
-
-                <Button variant="hero" size="lg" className="w-full" asChild>
-                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle size={20} />
-                    Garantir Minha Vaga Gratuita
-                    <ArrowRight size={20} />
-                  </a>
-                </Button>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -388,7 +396,7 @@ const MiniCurso = () => {
         {/* Final CTA */}
         <section className="py-24 bg-foreground text-background">
           <div className="container-section">
-            <div className="max-w-3xl mx-auto text-center animate-fade-up">
+            <ScrollReveal className="max-w-3xl mx-auto text-center">
               <Flame size={48} className="text-primary mx-auto mb-6" />
               <h2 className="font-display text-3xl lg:text-4xl font-semibold mb-6">
                 Último Aviso Importante
@@ -421,9 +429,12 @@ const MiniCurso = () => {
                   <ArrowRight size={20} />
                 </a>
               </Button>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQSection />
       </main>
       <Footer />
     </div>
