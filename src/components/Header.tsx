@@ -17,14 +17,14 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <nav className="container-section">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="font-display text-2xl font-semibold text-foreground">
+      <nav className="container-section px-4 sm:px-6" aria-label="Navegação principal">
+        <div className="flex items-center justify-between h-16 sm:h-20">
+          <Link to="/" className="font-display text-xl sm:text-2xl font-semibold text-foreground">
             Sara Duarte
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -38,16 +38,17 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
-            <Button variant="hero" size="sm" asChild>
-              <Link to="/mini-curso">Quero Transformar Minha Vida</Link>
+            <Button variant="hero" size="sm" className="text-xs lg:text-sm" asChild>
+              <Link to="/mini-curso">Transformar Minha Vida</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-foreground -mr-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -55,8 +56,8 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-6 border-t border-border/50 animate-fade-in">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden py-4 sm:py-6 border-t border-border/50 animate-fade-in">
+            <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -71,8 +72,10 @@ const Header = () => {
                   {link.name}
                 </Link>
               ))}
-              <Button variant="hero" className="mt-4" asChild>
-                <Link to="/mini-curso">Quero Transformar Minha Vida</Link>
+              <Button variant="hero" className="mt-3" asChild>
+                <Link to="/mini-curso" onClick={() => setIsMenuOpen(false)}>
+                  Transformar Minha Vida
+                </Link>
               </Button>
             </div>
           </div>

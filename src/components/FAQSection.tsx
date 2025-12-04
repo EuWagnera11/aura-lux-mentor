@@ -46,34 +46,42 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="py-24 bg-background">
-      <div className="container-section">
-        <ScrollReveal className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-sm font-medium text-primary uppercase tracking-wider">
+    <section className="py-16 sm:py-24 bg-background" itemScope itemType="https://schema.org/FAQPage">
+      <div className="container-section px-4 sm:px-6">
+        <ScrollReveal className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
+          <span className="text-xs sm:text-sm font-medium text-primary uppercase tracking-wider">
             ❓ Perguntas Frequentes
           </span>
-          <h2 className="font-display text-3xl lg:text-4xl font-semibold text-foreground mt-2 mb-4">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mt-2 mb-4">
             Tire Suas Dúvidas
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-sm sm:text-base text-muted-foreground">
             Encontre respostas para as perguntas mais comuns sobre o mini evento
           </p>
-          <div className="section-divider mt-6" />
+          <div className="section-divider mt-4 sm:mt-6" />
         </ScrollReveal>
 
         <ScrollReveal delay={200} className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card rounded-xl border border-border/50 px-6 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/5 transition-shadow"
+                className="bg-card rounded-xl border border-border/50 px-4 sm:px-6 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/5 transition-shadow"
+                itemScope
+                itemProp="mainEntity"
+                itemType="https://schema.org/Question"
               >
-                <AccordionTrigger className="text-left font-medium text-foreground hover:text-primary py-5">
-                  {faq.question}
+                <AccordionTrigger className="text-left text-sm sm:text-base font-medium text-foreground hover:text-primary py-4 sm:py-5">
+                  <span itemProp="name">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5">
-                  {faq.answer}
+                <AccordionContent 
+                  className="text-sm sm:text-base text-muted-foreground pb-4 sm:pb-5"
+                  itemScope
+                  itemProp="acceptedAnswer"
+                  itemType="https://schema.org/Answer"
+                >
+                  <span itemProp="text">{faq.answer}</span>
                 </AccordionContent>
               </AccordionItem>
             ))}
