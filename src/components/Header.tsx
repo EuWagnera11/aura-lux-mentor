@@ -20,7 +20,7 @@ const Header = () => {
       <nav className="container-section">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="font-display text-2xl font-semibold text-foreground">
-            Nome da Mentora
+            Sara Duarte
           </Link>
 
           {/* Desktop Navigation */}

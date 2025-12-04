@@ -43,7 +43,7 @@ const AboutSection = () => {
               <p className="font-display text-lg font-semibold text-foreground mb-2">
                 "Cada mulher carrega em si a força para sua transformação"
               </p>
-              <p className="text-sm text-muted-foreground">— Nome da Mentora</p>
+              <p className="text-sm text-muted-foreground">— Sara Duarte</p>
             </div>
           </div>
 

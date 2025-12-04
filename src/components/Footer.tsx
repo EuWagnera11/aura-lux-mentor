@@ -1,4 +1,4 @@
-import { Instagram, Mail, Heart } from "lucide-react";
+import { Instagram, Phone, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="font-display text-2xl font-semibold text-foreground mb-4">
-              Nome da Mentora
+              Sara Duarte
             </h3>
             <p className="text-muted-foreground leading-relaxed">
               Transformando vidas através do autoconhecimento, acolhimento e bem-estar feminino.
@@ -52,20 +52,22 @@ const Footer = () => {
             </h4>
             <div className="space-y-3">
               <a
-                href="mailto:contato@exemplo.com"
+                href="https://wa.me/5511981621509"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
-                <Mail size={18} />
-                contato@exemplo.com
+                <Phone size={18} />
+                +55 11 98162-1509
               </a>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/saraduarteoficial"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Instagram size={18} />
-                @nomedamentora
+                @saraduarteoficial
               </a>
             </div>
           </div>
@@ -74,7 +76,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Nome da Mentora. Todos os direitos reservados.
+            © {new Date().getFullYear()} Sara Duarte. Todos os direitos reservados.
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             Feito com <Heart size={14} className="text-primary fill-primary" /> para mulheres em transformação
