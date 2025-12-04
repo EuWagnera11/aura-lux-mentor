@@ -133,7 +133,7 @@ const MiniCurso = () => {
                 <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 max-w-md mx-auto lg:max-w-none">
                   <img
                     src={speakingPhoto}
-                    alt="Sara Duarte palestrando sobre identidade e transformação feminina"
+                    alt="Sara Duarte palestrando em evento sobre identidade feminina"
                     className="w-full object-cover"
                     loading="eager"
                   />

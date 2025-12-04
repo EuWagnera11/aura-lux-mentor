@@ -34,7 +34,7 @@ const AboutSection = () => {
             <div className="relative rounded-2xl overflow-hidden">
               <img
                 src={profilePhoto}
-                alt="Retrato profissional da mentora"
+                alt="Sara Duarte - Retrato profissional sorrindo"
                 className="w-full max-w-md mx-auto object-cover rounded-2xl"
               />
             </div>

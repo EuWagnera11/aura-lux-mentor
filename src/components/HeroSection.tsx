@@ -73,7 +73,7 @@ const HeroSection = () => {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/10">
                 <img
                   src={heroPhoto}
-                  alt="Mentora - Psicanalista e Fonoaudióloga especializada em bem-estar feminino"
+                  alt="Sara Duarte - Mentora de transformação feminina sentada com livro"
                   className="w-full max-w-md lg:max-w-lg object-cover"
                 />
                 {/* Overlay gradient */}
