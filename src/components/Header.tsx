@@ -8,13 +8,29 @@ const Header = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: "Início", path: "/" },
-    { name: "Sobre", path: "/#sobre" },
-    { name: "Depoimentos", path: "/#depoimentos" },
-    { name: "Contato", path: "/#contato" },
+    { name: "Início", path: "/", isAnchor: false },
+    { name: "Sobre", path: "/#sobre", isAnchor: true, anchor: "sobre" },
+    { name: "Depoimentos", path: "/#depoimentos", isAnchor: true, anchor: "depoimentos" },
+    { name: "Contato", path: "/#contato", isAnchor: true, anchor: "contato" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleNavClick = (link: typeof navLinks[0]) => {
+    if (link.isAnchor && link.anchor) {
+      if (location.pathname === "/") {
+        // Already on homepage, just scroll
+        const element = document.getElementById(link.anchor);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        // Navigate to homepage first, then scroll
+        window.location.href = link.path;
+      }
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
@@ -27,17 +43,31 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm font-medium transition-colors duration-300 ${
-                  isActive(link.path)
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {link.name}
-              </Link>
+              link.isAnchor ? (
+                <button
+                  key={link.path}
+                  onClick={() => handleNavClick(link)}
+                  className={`text-sm font-medium transition-colors duration-300 ${
+                    isActive(link.path)
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {link.name}
+                </button>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-sm font-medium transition-colors duration-300 ${
+                    isActive(link.path)
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
             <Button variant="hero" size="sm" className="text-xs lg:text-sm" asChild>
               <a href="https://wa.me/5511981621509?text=Olá Sara! Gostaria de saber mais sobre a mentoria." target="_blank" rel="noopener noreferrer">
@@ -62,18 +92,32 @@ const Header = () => {
           <div className="md:hidden py-4 sm:py-6 border-t border-border/50 animate-fade-in">
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`text-base font-medium py-2 ${
-                    isActive(link.path)
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
+                link.isAnchor ? (
+                  <button
+                    key={link.path}
+                    onClick={() => handleNavClick(link)}
+                    className={`text-base font-medium py-2 text-left ${
+                      isActive(link.path)
+                        ? "text-primary"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    {link.name}
+                  </button>
+                ) : (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`text-base font-medium py-2 ${
+                      isActive(link.path)
+                        ? "text-primary"
+                        : "text-muted-foreground"
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
               <Button variant="hero" className="mt-3" asChild>
                 <a href="https://wa.me/5511981621509?text=Olá Sara! Gostaria de saber mais sobre a mentoria." target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
