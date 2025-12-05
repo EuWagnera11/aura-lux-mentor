@@ -9,7 +9,8 @@ const Header = () => {
 
   const navLinks = [
     { name: "Início", path: "/" },
-    { name: "Mini Curso", path: "/mini-curso" },
+    { name: "Sobre", path: "/#sobre" },
+    { name: "Depoimentos", path: "/#depoimentos" },
     { name: "Contato", path: "/#contato" },
   ];
 
@@ -39,7 +40,9 @@ const Header = () => {
               </Link>
             ))}
             <Button variant="hero" size="sm" className="text-xs lg:text-sm" asChild>
-              <Link to="/mini-curso">Transformar Minha Vida</Link>
+              <a href="https://wa.me/5511981621509?text=Olá Sara! Gostaria de saber mais sobre a mentoria." target="_blank" rel="noopener noreferrer">
+                Falar com Sara
+              </a>
             </Button>
           </div>
 
@@ -73,9 +76,9 @@ const Header = () => {
                 </Link>
               ))}
               <Button variant="hero" className="mt-3" asChild>
-                <Link to="/mini-curso" onClick={() => setIsMenuOpen(false)}>
-                  Transformar Minha Vida
-                </Link>
+                <a href="https://wa.me/5511981621509?text=Olá Sara! Gostaria de saber mais sobre a mentoria." target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
+                  Falar com Sara
+                </a>
               </Button>
             </div>
           </div>
