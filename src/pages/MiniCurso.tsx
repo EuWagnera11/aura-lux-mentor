@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import MiniCursoHeader from "@/components/MiniCursoHeader";
 import Footer from "@/components/Footer";
 import FAQSection from "@/components/FAQSection";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -82,7 +82,7 @@ const MiniCurso = () => {
         url="https://saraduarte.com.br/mini-curso"
       />
       <div className="min-h-screen">
-        <Header />
+        <MiniCursoHeader />
         <main className="pt-20">
         {/* Hero */}
         <section className="py-12 sm:py-20 bg-gradient-to-br from-warm-cream via-background to-warm-beige relative overflow-hidden">
